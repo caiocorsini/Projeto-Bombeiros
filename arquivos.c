@@ -22,7 +22,7 @@ int EsquinaComIncendio_ou_numeroEsquinas(char* nomeArquivo, char opcao){
 
     if (arquivo == NULL) {  // Verificacao se o arquivo carregou corretamente
         printf("Arquivo nao encontrado!");
-        return -1;
+        return 0;
     }
 
     fgets(linha, sizeof(linha), arquivo);  // Pega a primeira linha do arquivo (esquina com incendo)

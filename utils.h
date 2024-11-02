@@ -6,4 +6,6 @@
 
 void imprimirMatriz(int** matriz, int n);
 
+void menu();
+
 #endif

@@ -18,3 +18,13 @@ void imprimirMatriz(int** matriz, int n){
         printf("\n");
     }
 }
+
+// Apenas imprime as opcoes de menu para o usuario escolher
+void menu(){
+    printf("\n---SISTEMA BOMBEIROS---\n");
+    printf("[1] Gerar mapa\n");
+    printf("[2] Imprimir mapa\n");
+    printf("[3] Resolver\n");
+    printf("[4] Gerar arquivo de saida\n");
+    printf("[0] Sair do programa\n");
+}
