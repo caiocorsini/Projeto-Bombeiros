@@ -6,4 +6,6 @@
 
 int EsquinaComIncendio_ou_numeroEsquinas(char* nomeArquivo, char opcao);
 
+int** arquivoParaMapa(char* nomeArquivo, int n);
+
 #endif

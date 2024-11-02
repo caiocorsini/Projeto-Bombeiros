@@ -25,8 +25,14 @@
 
 int main(){
     char* nomeArquivoEntrada = "entrada.txt";
-    printf("%d\n", EsquinaComIncendio_ou_numeroEsquinas(nomeArquivoEntrada,'i'));
-    printf("%d", EsquinaComIncendio_ou_numeroEsquinas(nomeArquivoEntrada,'n'));
+    int esquinaComIncendio = EsquinaComIncendio_ou_numeroEsquinas(nomeArquivoEntrada,'i');
+    int numeroEsquinas = EsquinaComIncendio_ou_numeroEsquinas(nomeArquivoEntrada,'n');
+    int** mapa = arquivoParaMapa(nomeArquivoEntrada, numeroEsquinas);
+
+    // TESTES
+    printf("Esquina com incencio: %d\n",esquinaComIncendio);
+    printf("Numero esquinas com incendio: %d\n", numeroEsquinas);
+    imprimirMatriz(mapa, numeroEsquinas);
 
 
 
