@@ -10,15 +10,28 @@
 /**
  * REFERENCIAS
  * Algoritmo de Dijkstra Geeks for Geeks: https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
- *
+ * Manipulacao de arquivos em C: https://www.geeksforgeeks.org/basics-file-handling-c/
  *
  *  
  *
  * **/
 
+//gcc -o main.exe *.c *.h & main.exe 
+
 #include <stdio.h>
+#include <stdlib.h>
+#include "utils.h"
+#include "arquivos.h"
 
 int main(){
+    char* nomeArquivoEntrada = "entrada.txt";
+    printf("%d\n", numeroEsquinaComIncendio(nomeArquivoEntrada));
+    printf("%d", numeroDeEsquinasTotal(nomeArquivoEntrada));
+
+
+
+    //int** matrix = (int**)malloc(20 * sizeof(int*)); for (int i = 0; i < 20; i++) {matrix[i] = (int*)malloc(20 * sizeof(int));}
+    //imprimirMatriz(matrix,20);
 
     return 0;
 }
