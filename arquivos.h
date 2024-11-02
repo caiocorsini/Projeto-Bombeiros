@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int numeroEsquinaComIncendio(char* nomeArquivo);
-int numeroDeEsquinasTotal(char* nomeArquivo);
+int EsquinaComIncendio_ou_numeroEsquinas(char* nomeArquivo, char opcao);
 
 #endif

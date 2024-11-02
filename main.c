@@ -25,8 +25,8 @@
 
 int main(){
     char* nomeArquivoEntrada = "entrada.txt";
-    printf("%d\n", numeroEsquinaComIncendio(nomeArquivoEntrada));
-    printf("%d", numeroDeEsquinasTotal(nomeArquivoEntrada));
+    printf("%d\n", EsquinaComIncendio_ou_numeroEsquinas(nomeArquivoEntrada,'i'));
+    printf("%d", EsquinaComIncendio_ou_numeroEsquinas(nomeArquivoEntrada,'n'));
 
 
 
