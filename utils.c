@@ -11,16 +11,31 @@
 #include <stdlib.h>
 
 // Funcao apenas para imprimir matrizes. Para testes
-void imprimirMatriz(int** matriz, int n){
-    for(int i=0; i<n; i++){
-        for(int j=0; j<n; j++)
+void imprimirMatriz(int **matriz, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
             printf("%d ", matriz[i][j]);
         printf("\n");
     }
 }
 
+void printArray(int *arr, int size)
+{
+    printf("[");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d", arr[i]);
+        if (i < size - 1)
+            printf(", ");
+    }
+    printf("]\n");
+}
+
 // Apenas imprime as opcoes de menu para o usuario escolher
-void menu(){
+void menu()
+{
     printf("\n---SISTEMA BOMBEIROS---\n");
     printf("[1] Gerar mapa\n");
     printf("[2] Imprimir mapa\n");

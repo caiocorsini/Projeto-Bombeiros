@@ -12,56 +12,90 @@
  * Algoritmo de Dijkstra Geeks for Geeks: https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
  * Manipulacao de arquivos em C Geeks for Geeks: https://www.geeksforgeeks.org/basics-file-handling-c/
  * Representacoes de grafos Geeks for Geeks: https://www.geeksforgeeks.org/graph-and-its-representations/
- *  
+ *
  *
  * **/
 
-//gcc -o main.exe *.c *.h & main.exe 
+// gcc -o main.exe *.c *.h & main.exe
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include "utils.h"
 #include "arquivos.h"
+#include "dijkstra.h"
 
-int main(){
-    char* nomeArquivoEntrada = "entrada.txt";
+int main()
+{
+    char *nomeArquivoEntrada = "entrada.txt";
     int esquinaComIncendio;
     int numeroEsquinas;
-    int** mapa;
+    int **mapa;
     int opcao = -1;
     bool arquivoLido = false;
 
+    int *tempos;
+    int *rota;
+
     // Menu de interacao com o usuario
-    while(opcao){
+    while (opcao)
+    {
         menu();
         printf("Selecione opcao: ");
         scanf("%d", &opcao);
         printf("\n");
 
-        if(opcao == 1){
-            esquinaComIncendio = EsquinaComIncendio_ou_numeroEsquinas(nomeArquivoEntrada,'i');
-            numeroEsquinas = EsquinaComIncendio_ou_numeroEsquinas(nomeArquivoEntrada,'n');
+        if (opcao == 1)
+        {
+            esquinaComIncendio = EsquinaComIncendio_ou_numeroEsquinas(nomeArquivoEntrada, 'i');
+            numeroEsquinas = EsquinaComIncendio_ou_numeroEsquinas(nomeArquivoEntrada, 'n');
             mapa = arquivoParaMapa(nomeArquivoEntrada, numeroEsquinas);
             arquivoLido = true;
         }
 
-        if(opcao == 2){
-            if(arquivoLido){
-                printf("Esquina com incencio: %d\n",esquinaComIncendio);
+        if (opcao == 2)
+        {
+            if (arquivoLido)
+            {
+                printf("Esquina com incendio: %d\n", esquinaComIncendio);
                 printf("Numero esquinas com incendio: %d\n", numeroEsquinas);
                 imprimirMatriz(mapa, numeroEsquinas);
                 printf("\n");
-            } else printf("Nenhum mapa carregado.\nPor favor selecionar opcao 1 primeiro.\n");
+            }
+            else
+                printf("Nenhum mapa carregado.\nPor favor selecionar opcao 1 primeiro.\n");
         }
 
-        if(opcao == 3){
+        if (opcao == 3)
+        {
+            tempos = (int *)malloc(numeroEsquinas * sizeof(int));
+            rota = (int *)malloc(numeroEsquinas * sizeof(int));
 
+            dijkstra(mapa, numeroEsquinas, tempos, rota);
+
+            // para testes APENAS
+            // printArray(tempos, numeroEsquinas);
+            // printArray(rota, numeroEsquinas);
+
+            printf("Tempo para a esquina %d: %d\n", esquinaComIncendio, tempos[esquinaComIncendio - 1]);
+
+            printf("Rota para a esquina %d: ", esquinaComIncendio);
+            imprimirRota(esquinaComIncendio - 1, rota);
         }
 
-        if(opcao == 4){
-            
+        if (opcao == 4)
+        {
         }
     }
+
+    // Liberar mem
+    for (int i = 0; i < numeroEsquinas; i++)
+    {
+        free(mapa[i]);
+    }
+    free(mapa);
+    free(tempos);
+    free(rota);
+
     return 0;
 }

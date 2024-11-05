@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void imprimirMatriz(int** matriz, int n);
-
+void imprimirMatriz(int **matriz, int n);
+void printArray(int *arr, int size);
 void menu();
 
 #endif
