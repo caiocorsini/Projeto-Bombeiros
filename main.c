@@ -12,7 +12,7 @@
  * Algoritmo de Dijkstra Geeks for Geeks: https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
  * Manipulacao de arquivos em C Geeks for Geeks: https://www.geeksforgeeks.org/basics-file-handling-c/
  * Representacoes de grafos Geeks for Geeks: https://www.geeksforgeeks.org/graph-and-its-representations/
- *
+ * Como exportar arquivos em C: KING, K. N. C Programming: A Modern Approach. 2. ed. New York: W. W. Norton & Company, 2008.
  *
  * **/
 
@@ -68,23 +68,31 @@ int main()
 
         if (opcao == 3)
         {
-            tempos = (int *)malloc(numeroEsquinas * sizeof(int));
-            rota = (int *)malloc(numeroEsquinas * sizeof(int));
+            if (arquivoLido) {
+                tempos = (int *)malloc(numeroEsquinas * sizeof(int));
+                rota = (int *)malloc(numeroEsquinas * sizeof(int));
 
-            dijkstra(mapa, numeroEsquinas, tempos, rota);
+                dijkstra(mapa, numeroEsquinas, tempos, rota);
 
-            // para testes APENAS
-            // printArray(tempos, numeroEsquinas);
-            // printArray(rota, numeroEsquinas);
+                // para testes APENAS
+                // printArray(tempos, numeroEsquinas);
+                // printArray(rota, numeroEsquinas);
 
-            printf("Tempo para a esquina %d: %d\n", esquinaComIncendio, tempos[esquinaComIncendio - 1]);
-
-            printf("Rota para a esquina %d: ", esquinaComIncendio);
-            imprimirRota(esquinaComIncendio - 1, rota);
-        }
+                printf("Tempo para a esquina %d: %d minutos\n", esquinaComIncendio, tempos[esquinaComIncendio - 1]);
+                printf("Rota para a esquina %d: ", esquinaComIncendio);
+                imprimirRota(esquinaComIncendio - 1, rota);
+            } else {
+                printf("Nenhum mapa carregado. Selecione a opção 1 primeiro.\n");
+            }
+        } 
 
         if (opcao == 4)
         {
+            if (arquivoLido) {
+                gerarArquivoSaida("saida.txt", esquinaComIncendio - 1, rota, tempos[esquinaComIncendio- 1]);
+            } else {
+                printf("Nenhum mapa carregado. Selecione a opção 1 primeiro.\n");
+            }
         }
     }
 

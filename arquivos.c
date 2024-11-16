@@ -69,3 +69,38 @@ int** arquivoParaMapa(char* nomeArquivo, int n){
     fclose(arquivo);
     return mapa;
 }
+
+
+/* função para gerar arquivo de saída */
+void gerarArquivoSaida(char *nomeArquivoSaida, int destino, int *rota, int tempo) {
+    FILE *arquivoSaida = fopen(nomeArquivoSaida, "w");
+    if (arquivoSaida == NULL) {
+        printf("Erro ao criar o arquivo de saída.\n");
+        return;
+    }
+
+    // rota
+    fprintf(arquivoSaida, "Rota até a esquina %d: ", destino + 1);
+    int caminho[100];
+    int indice = 0;
+
+    while (destino != -1) {
+        caminho[indice] = destino + 1;
+        destino = rota[destino];
+        indice += 1;
+    }
+
+    for (int i = indice - 1; i >= 0; i--) {
+        fprintf(arquivoSaida, "%d", caminho[i]);
+        if (i > 0)
+            fprintf(arquivoSaida, " -> ");
+    }
+    fprintf(arquivoSaida, "\n");
+
+    fprintf(arquivoSaida, "Templo calculado para rota = %d minutos. \n", tempo);
+
+    fclose(arquivoSaida);
+
+    printf("Resultado salvo no arquivo '%s'.\n", nomeArquivoSaida);
+
+}
