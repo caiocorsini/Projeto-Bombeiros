@@ -68,20 +68,23 @@ int main()
 
         if (opcao == 3)
         {
-            tempos = (int *)malloc(numeroEsquinas * sizeof(int));
-            rota = (int *)malloc(numeroEsquinas * sizeof(int));
+            if (arquivoLido) {
+                tempos = (int *)malloc(numeroEsquinas * sizeof(int));
+                rota = (int *)malloc(numeroEsquinas * sizeof(int));
 
-            dijkstra(mapa, numeroEsquinas, tempos, rota);
+                dijkstra(mapa, numeroEsquinas, tempos, rota);
 
-            // para testes APENAS
-            // printArray(tempos, numeroEsquinas);
-            // printArray(rota, numeroEsquinas);
+                // para testes APENAS
+                // printArray(tempos, numeroEsquinas);
+                // printArray(rota, numeroEsquinas);
 
-            printf("Tempo para a esquina %d: %d minutos\n", esquinaComIncendio, tempos[esquinaComIncendio - 1]);
-
-            printf("Rota para a esquina %d: ", esquinaComIncendio);
-            imprimirRota(esquinaComIncendio - 1, rota);
-        }
+                printf("Tempo para a esquina %d: %d minutos\n", esquinaComIncendio, tempos[esquinaComIncendio - 1]);
+                printf("Rota para a esquina %d: ", esquinaComIncendio);
+                imprimirRota(esquinaComIncendio - 1, rota);
+            } else {
+                printf("Nenhum mapa carregado. Selecione a opção 1 primeiro.\n");
+            }
+        } 
 
         if (opcao == 4)
         {
