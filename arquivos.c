@@ -91,13 +91,13 @@ void gerarArquivoSaida(char *nomeArquivoSaida, int destino, int *rota, int tempo
     }
 
     for (int i = indice - 1; i >= 0; i--) {
-        fprint(arquivoSaida, "%d", caminho[i]);
+        fprintf(arquivoSaida, "%d", caminho[i]);
         if (i > 0)
-            fprint(arquivoSaida, " -> ");
+            fprintf(arquivoSaida, " -> ");
     }
     fprintf(arquivoSaida, "\n");
 
-    fprint(arquivoSaida, "Templo calculado para rota = %d minutos. \n", tempo);
+    fprintf(arquivoSaida, "Templo calculado para rota = %d minutos. \n", tempo);
 
     fclose(arquivoSaida);
 

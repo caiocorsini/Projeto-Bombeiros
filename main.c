@@ -77,7 +77,7 @@ int main()
             // printArray(tempos, numeroEsquinas);
             // printArray(rota, numeroEsquinas);
 
-            printf("Tempo para a esquina %d: %d\n", esquinaComIncendio, tempos[esquinaComIncendio - 1]);
+            printf("Tempo para a esquina %d: %d minutos\n", esquinaComIncendio, tempos[esquinaComIncendio - 1]);
 
             printf("Rota para a esquina %d: ", esquinaComIncendio);
             imprimirRota(esquinaComIncendio - 1, rota);
@@ -85,6 +85,11 @@ int main()
 
         if (opcao == 4)
         {
+            if (arquivoLido) {
+                gerarArquivoSaida("saida.txt", esquinaComIncendio - 1, rota, tempos[esquinaComIncendio- 1]);
+            } else {
+                printf("Nenhum mapa carregado. Selecione a opção 1 primeiro.\n");
+            }
         }
     }
 
