@@ -12,7 +12,7 @@
  * Algoritmo de Dijkstra Geeks for Geeks: https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
  * Manipulacao de arquivos em C Geeks for Geeks: https://www.geeksforgeeks.org/basics-file-handling-c/
  * Representacoes de grafos Geeks for Geeks: https://www.geeksforgeeks.org/graph-and-its-representations/
- *
+ * Como exportar arquivos em C: KING, K. N. C Programming: A Modern Approach. 2. ed. New York: W. W. Norton & Company, 2008.
  *
  * **/
 
